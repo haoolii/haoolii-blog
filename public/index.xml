@@ -2,81 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Haoolii Note</title>
-    <link>http://localhost:1313/</link>
+    <link>https://haoolii.github.io/</link>
     <description>Recent content on Haoolii Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2008–2024, Steve Francia and the haoolii; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 18 Mar 2024 21:34:58 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Apr 2024 23:11:56 +0800</lastBuildDate>
+    <atom:link href="https://haoolii.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>寶塔安裝筆記與繞過套件付費機制</title>
+      <link>https://haoolii.github.io/post/baota-install-intro/</link>
+      <pubDate>Thu, 25 Apr 2024 23:11:56 +0800</pubDate>
+      <guid>https://haoolii.github.io/post/baota-install-intro/</guid>
+      <description>寶塔安裝筆記 破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。 參閱官方 Github https://github.com/aaPanel/BaoTa&#xA;寶塔介紹 寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。&#xA;前言 破解版本目前僅能使用 v7.7.0 版本以前，之後版本都會驗證 userinfo.json。&#xA;安裝寶塔 安裝 v7.7.0 版本腳本，原作者 Github (https://github.com/8838/btpanel-v7.7.0) curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;amp;&amp;amp; bash install_panel.sh 移除手機號碼阻擋 sed -i &amp;#34;s|bind_user == &amp;#39;True&amp;#39;|bind_user == &amp;#39;XXXX&amp;#39;|&amp;#34; /www/server/panel/BTPanel/static/js/index.js 刪除強制綁定手機js文件 rm -f /www/server/panel/data/bind.pl 快速一鍵優化腳本&#xA;wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;amp;&amp;amp; bash optimize.sh 擔心未來站點被移除，以下為備份腳本。&#xA;optimize.sh 寶塔套件開心版 寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用&#xA;手動將付費套件改為永不過期 文件路徑 `/www/server/panel/data/plugin.json` 搜尋 `&amp;#34;endtime&amp;#34;: -1` 全部替換為 `&amp;#34;endtime&amp;#34;: 999999999999` 調整 plugin.json 權限，防止被改回免費版本 chattr +i /www/server/panel/data/plugin.json 快速一鍵腳本&#xA;curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;amp;&amp;amp; bash one_key_happy.</description>
+    </item>
     <item>
       <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo-copy-2/</link>
+      <link>https://haoolii.github.io/post/hello-hugo-copy/</link>
       <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo-copy-2/</guid>
+      <guid>https://haoolii.github.io/post/hello-hugo-copy/</guid>
       <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
     </item>
     <item>
       <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo-copy-3/</link>
+      <link>https://haoolii.github.io/post/hello-hugo/</link>
       <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo-copy-3/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo-copy-4/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo-copy-4/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo-copy-5/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo-copy-5/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo-copy-6/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo-copy-6/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo-copy/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo-copy/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>http://localhost:1313/post/hello-hugo/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>http://localhost:1313/post/hello-hugo/</guid>
+      <guid>https://haoolii.github.io/post/hello-hugo/</guid>
       <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/archives/</link>
+      <link>https://haoolii.github.io/archives/</link>
       <pubDate>Mon, 18 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/archives/</guid>
+      <guid>https://haoolii.github.io/archives/</guid>
       <description></description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://haoolii.github.io/about/</link>
       <pubDate>Mon, 18 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://haoolii.github.io/about/</guid>
       <description>Hello World</description>
     </item>
     <item>
       <title>Contact</title>
-      <link>http://localhost:1313/contact/</link>
+      <link>https://haoolii.github.io/contact/</link>
       <pubDate>Mon, 18 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/contact/</guid>
+      <guid>https://haoolii.github.io/contact/</guid>
       <description> github.com/haoolii </description>
     </item>
   </channel>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Index on Haoolii Note</title>
-    <link>https://haoolii.github.io/tags/index/</link>
-    <description>Recent content in Index on Haoolii Note</description>
+    <title>Posts on Haoolii Note</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Haoolii Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2008–2024, Steve Francia and the haoolii; all rights reserved.</copyright>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://haoolii.github.io/tags/index/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

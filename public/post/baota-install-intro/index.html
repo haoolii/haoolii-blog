@@ -1,0 +1,406 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh-CN"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>寶塔安裝筆記與繞過套件付費機制 - Haoolii Note</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="寶塔安裝筆記 破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。 參閱官方 Github https://github.com/aaPanel/BaoTa
+寶塔介紹 寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。
+前言 破解版本目前僅能使用 v7.7.0 版本以前，之後版本都會驗證 userinfo.json。
+安裝寶塔 安裝 v7.7.0 版本腳本，原作者 Github (https://github.com/8838/btpanel-v7.7.0) curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;&amp; bash install_panel.sh 移除手機號碼阻擋 sed -i &#34;s|bind_user == &#39;True&#39;|bind_user == &#39;XXXX&#39;|&#34; /www/server/panel/BTPanel/static/js/index.js 刪除強制綁定手機js文件 rm -f /www/server/panel/data/bind.pl 快速一鍵優化腳本
+wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;&amp; bash optimize.sh 擔心未來站點被移除，以下為備份腳本。
+optimize.sh 寶塔套件開心版 寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用
+手動將付費套件改為永不過期 文件路徑 `/www/server/panel/data/plugin.json` 搜尋 `&#34;endtime&#34;: -1` 全部替換為 `&#34;endtime&#34;: 999999999999` 調整 plugin.json 權限，防止被改回免費版本 chattr &#43;i /www/server/panel/data/plugin.json 快速一鍵腳本
+curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;&amp; bash one_key_happy." />
+  <meta name="author" content="Haoolii Note" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://haoolii.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://haoolii.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://haoolii.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://haoolii.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://haoolii.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.124.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="寶塔安裝筆記與繞過套件付費機制">
+<meta itemprop="description" content="寶塔安裝筆記 破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。 參閱官方 Github https://github.com/aaPanel/BaoTa
+寶塔介紹 寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。
+前言 破解版本目前僅能使用 v7.7.0 版本以前，之後版本都會驗證 userinfo.json。
+安裝寶塔 安裝 v7.7.0 版本腳本，原作者 Github (https://github.com/8838/btpanel-v7.7.0) curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;&amp; bash install_panel.sh 移除手機號碼阻擋 sed -i &#34;s|bind_user == &#39;True&#39;|bind_user == &#39;XXXX&#39;|&#34; /www/server/panel/BTPanel/static/js/index.js 刪除強制綁定手機js文件 rm -f /www/server/panel/data/bind.pl 快速一鍵優化腳本
+wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;&amp; bash optimize.sh 擔心未來站點被移除，以下為備份腳本。
+optimize.sh 寶塔套件開心版 寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用
+手動將付費套件改為永不過期 文件路徑 `/www/server/panel/data/plugin.json` 搜尋 `&#34;endtime&#34;: -1` 全部替換為 `&#34;endtime&#34;: 999999999999` 調整 plugin.json 權限，防止被改回免費版本 chattr &#43;i /www/server/panel/data/plugin.json 快速一鍵腳本
+curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;&amp; bash one_key_happy."><meta itemprop="datePublished" content="2024-04-25T23:11:56+08:00" />
+<meta itemprop="dateModified" content="2024-04-25T23:11:56+08:00" />
+<meta itemprop="wordCount" content="95">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="寶塔安裝筆記與繞過套件付費機制" />
+<meta property="og:description" content="寶塔安裝筆記 破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。 參閱官方 Github https://github.com/aaPanel/BaoTa
+寶塔介紹 寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。
+前言 破解版本目前僅能使用 v7.7.0 版本以前，之後版本都會驗證 userinfo.json。
+安裝寶塔 安裝 v7.7.0 版本腳本，原作者 Github (https://github.com/8838/btpanel-v7.7.0) curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;&amp; bash install_panel.sh 移除手機號碼阻擋 sed -i &#34;s|bind_user == &#39;True&#39;|bind_user == &#39;XXXX&#39;|&#34; /www/server/panel/BTPanel/static/js/index.js 刪除強制綁定手機js文件 rm -f /www/server/panel/data/bind.pl 快速一鍵優化腳本
+wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;&amp; bash optimize.sh 擔心未來站點被移除，以下為備份腳本。
+optimize.sh 寶塔套件開心版 寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用
+手動將付費套件改為永不過期 文件路徑 `/www/server/panel/data/plugin.json` 搜尋 `&#34;endtime&#34;: -1` 全部替換為 `&#34;endtime&#34;: 999999999999` 調整 plugin.json 權限，防止被改回免費版本 chattr &#43;i /www/server/panel/data/plugin.json 快速一鍵腳本
+curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;&amp; bash one_key_happy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haoolii.github.io/post/baota-install-intro/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-04-25T23:11:56+08:00" />
+<meta property="article:modified_time" content="2024-04-25T23:11:56+08:00" />
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="寶塔安裝筆記與繞過套件付費機制"/>
+<meta name="twitter:description" content="寶塔安裝筆記 破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。 參閱官方 Github https://github.com/aaPanel/BaoTa
+寶塔介紹 寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。
+前言 破解版本目前僅能使用 v7.7.0 版本以前，之後版本都會驗證 userinfo.json。
+安裝寶塔 安裝 v7.7.0 版本腳本，原作者 Github (https://github.com/8838/btpanel-v7.7.0) curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;&amp; bash install_panel.sh 移除手機號碼阻擋 sed -i &#34;s|bind_user == &#39;True&#39;|bind_user == &#39;XXXX&#39;|&#34; /www/server/panel/BTPanel/static/js/index.js 刪除強制綁定手機js文件 rm -f /www/server/panel/data/bind.pl 快速一鍵優化腳本
+wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;&amp; bash optimize.sh 擔心未來站點被移除，以下為備份腳本。
+optimize.sh 寶塔套件開心版 寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用
+手動將付費套件改為永不過期 文件路徑 `/www/server/panel/data/plugin.json` 搜尋 `&#34;endtime&#34;: -1` 全部替換為 `&#34;endtime&#34;: 999999999999` 調整 plugin.json 權限，防止被改回免費版本 chattr &#43;i /www/server/panel/data/plugin.json 快速一鍵腳本
+curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;&amp; bash one_key_happy."/>
+
+  
+  
+  
+  <link rel="canonical" href="https://haoolii.github.io/post/baota-install-intro/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://haoolii.github.io/"
+      >Haoolii Note</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/contact/"
+        >Contact</a
+      >
+      
+    </nav>
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">寶塔安裝筆記與繞過套件付費機制</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Apr 25, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="寶塔安裝筆記">寶塔安裝筆記</h1>
+<blockquote>
+<p>破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。
+參閱官方 Github <a href="https://github.com/aaPanel/BaoTa">https://github.com/aaPanel/BaoTa</a></p>
+</blockquote>
+<h3 id="寶塔介紹">寶塔介紹</h3>
+<p>寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。</p>
+<h3 id="前言">前言</h3>
+<p>破解版本目前僅能使用 <code>v7.7.0</code> 版本以前，之後版本都會驗證 <code>userinfo.json</code>。</p>
+<h3 id="安裝寶塔">安裝寶塔</h3>
+<ol>
+<li>安裝 <code>v7.7.0</code> 版本腳本，原作者 Github (<a href="https://github.com/8838/btpanel-v7.7.0">https://github.com/8838/btpanel-v7.7.0</a>)</li>
+</ol>
+<pre tabindex="0"><code>curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;&amp; bash install_panel.sh
+</code></pre><ol start="2">
+<li>移除手機號碼阻擋</li>
+</ol>
+<pre tabindex="0"><code>sed -i &#34;s|bind_user == &#39;True&#39;|bind_user == &#39;XXXX&#39;|&#34; /www/server/panel/BTPanel/static/js/index.js
+</code></pre><ol start="3">
+<li>刪除強制綁定手機js文件</li>
+</ol>
+<pre tabindex="0"><code>rm -f /www/server/panel/data/bind.pl
+</code></pre><p>快速一鍵優化腳本</p>
+<pre tabindex="0"><code>wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;&amp; bash optimize.sh
+</code></pre><p>擔心未來站點被移除，以下為備份腳本。</p>
+<ul>
+<li><a href="/files/optimize.sh">optimize.sh</a></li>
+</ul>
+<h3 id="寶塔套件開心版">寶塔套件開心版</h3>
+<blockquote>
+<p>寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用</p>
+</blockquote>
+<ol>
+<li>手動將付費套件改為永不過期</li>
+</ol>
+<pre tabindex="0"><code>文件路徑 `/www/server/panel/data/plugin.json`
+搜尋 `&#34;endtime&#34;: -1` 全部替換為 `&#34;endtime&#34;: 999999999999`
+</code></pre><ol start="2">
+<li>調整 <code>plugin.json</code> 權限，防止被改回免費版本</li>
+</ol>
+<pre tabindex="0"><code>chattr +i /www/server/panel/data/plugin.json
+</code></pre><p>快速一鍵腳本</p>
+<pre tabindex="0"><code>curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;&amp; bash one_key_happy.sh
+</code></pre><p>擔心未來站點被移除，以下為備份腳本。</p>
+<ul>
+<li><a href="/files/one_key_happy.sh">one_key_happy.sh</a></li>
+</ul>
+<h3 id="寶塔降版本">寶塔降版本</h3>
+<blockquote>
+<p>也許有時候誤觸面板上的升級或修復按鈕，導致版本升級無法繼續使用開心版本。</p>
+</blockquote>
+<ol>
+<li>下載 <code>v7.7.0</code> 版本</li>
+</ol>
+<pre tabindex="0"><code>wget https://d.ybfl.xyz/bt/LinuxPanel-7.7.0.zip
+</code></pre><ol start="2">
+<li>解壓縮</li>
+</ol>
+<pre tabindex="0"><code>unzip LinuxPanel-7.7.0.zip
+</code></pre><blockquote>
+<p>如果有提示輸入大寫A，全部替換</p>
+</blockquote>
+<ol start="3">
+<li>進入升級目錄</li>
+</ol>
+<pre tabindex="0"><code>cd /root/panel
+</code></pre><ol start="4">
+<li>執行降級</li>
+</ol>
+<pre tabindex="0"><code>bash update.sh
+</code></pre><h3 id="相關筆記連結多半來源為中國">相關筆記連結(多半來源為中國)</h3>
+<p><a href="https://www.wdzzz.com/yunying/idc/2471.html">403 Forbidden解決方案</a>
+<a href="https://blog.csdn.net/dccose/article/details/127012649">鍵站無域名解決方案</a>
+<a href="https://www.bt.cn/bbs/thread-33886-1-1.html">如何查看寶塔面板地址</a></p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://haoolii.github.io/post/hello-hugo-copy/"
+      ><span>Hello Hugo</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://haoolii.github.io/">Haoolii Note</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
