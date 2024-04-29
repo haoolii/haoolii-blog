@@ -4,31 +4,24 @@
     <title>Haoolii Note</title>
     <link>https://haoolii.github.io/</link>
     <description>Recent content on Haoolii Note</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2008–2024, Steve Francia and the haoolii; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 25 Apr 2024 23:11:56 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2024 11:27:23 +0800</lastBuildDate>
     <atom:link href="https://haoolii.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript Function Argument 筆記</title>
+      <link>https://haoolii.github.io/post/arguments-research/</link>
+      <pubDate>Mon, 29 Apr 2024 11:27:23 +0800</pubDate>
+      <guid>https://haoolii.github.io/post/arguments-research/</guid>
+      <description>Javascript Function Argument 筆記 紀錄實作工作上部分 function 使用 argument 直接取值時的一些筆記。&#xA;Array-like Object argument是類似array的物件，具有length可取得長度，如要調用array的函式，需要透過call。&#xA;function pump() { console.log(&amp;#39;arguments&amp;#39;, arguments) console.log(&amp;#39;length&amp;#39;, arguments.length) const joinString = Array.prototype.join.call(arguments, &amp;#39;&amp;amp;&amp;#39;); console.log(&amp;#39;joinString&amp;#39;, joinString) } pump(&amp;#39;BTC&amp;#39;, &amp;#39;ETH&amp;#39;) Output:&#xA;arguments Arguments(2) [&amp;#39;BTC&amp;#39;, &amp;#39;ETH&amp;#39;, callee: ƒ, Symbol(Symbol.iterator): ƒ] length 2 joinString BTC&amp;amp;ETH Argument 屬性 Length 如上面範例所示，具有length屬性可取得長度。 callee 可取得函數本身。 對應參數綁定特性 傳入的參數會與arguments的值會共享，但未傳入時將不會。&#xA;function pump(name, age, sex) { console.log(name, arguments[0]); // foo foo name = &amp;#39;poo&amp;#39;; console.log(name, arguments[0]); // poo poo console.log(age, arguments[1]); // 18 18 arguments[1] = 20 console.</description>
+    </item>
     <item>
       <title>寶塔安裝筆記</title>
       <link>https://haoolii.github.io/post/baota-install-intro/</link>
       <pubDate>Thu, 25 Apr 2024 23:11:56 +0800</pubDate>
       <guid>https://haoolii.github.io/post/baota-install-intro/</guid>
       <description>寶塔安裝筆記 破解版本屬於非正規，此文件僅供自己筆記與教學性質，請勿使用於商業環境。 參閱官方 Github https://github.com/aaPanel/BaoTa&#xA;寶塔介紹 寶塔是很好用的伺服器維運面板，提供友善的介面與圖表，多元的套件商店，甚至有支援手機APP。在快速建置伺服器或是對於伺服器配置不熟悉，裝上寶塔後，都可以快速使用UI，對於快速需要建置商案或是小應用非常方便。&#xA;前言 破解版本目前僅能使用 v7.7.0 版本以前，之後版本都會驗證 userinfo.json。&#xA;安裝寶塔 安裝 v7.7.0 版本腳本，原作者 Github (https://github.com/8838/btpanel-v7.7.0) curl -sSO https://raw.githubusercontent.com/8838/btpanel-v7.7.0/main/install/install_panel.sh &amp;amp;&amp;amp; bash install_panel.sh 移除手機號碼阻擋 sed -i &amp;#34;s|bind_user == &amp;#39;True&amp;#39;|bind_user == &amp;#39;XXXX&amp;#39;|&amp;#34; /www/server/panel/BTPanel/static/js/index.js 刪除強制綁定手機js文件 rm -f /www/server/panel/data/bind.pl 快速一鍵優化腳本&#xA;wget -O optimize.sh http://f.cccyun.cc/bt/optimize.sh &amp;amp;&amp;amp; bash optimize.sh 擔心未來站點被移除，以下為備份腳本。&#xA;optimize.sh 寶塔套件開心版 寶塔各種套件是需要收費的，以下為繞過付費機制的方式。僅供教學使用&#xA;手動將付費套件改為永不過期 文件路徑 `/www/server/panel/data/plugin.json` 搜尋 `&amp;#34;endtime&amp;#34;: -1` 全部替換為 `&amp;#34;endtime&amp;#34;: 999999999999` 調整 plugin.json 權限，防止被改回免費版本 chattr +i /www/server/panel/data/plugin.json 快速一鍵腳本&#xA;curl -sSO https://raw.githubusercontent.com/ztkink/bthappy/main/one_key_happy.sh &amp;amp;&amp;amp; bash one_key_happy.</description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>https://haoolii.github.io/post/hello-hugo-copy/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>https://haoolii.github.io/post/hello-hugo-copy/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
-    </item>
-    <item>
-      <title>Hello Hugo</title>
-      <link>https://haoolii.github.io/post/hello-hugo/</link>
-      <pubDate>Mon, 18 Mar 2024 21:34:58 +0800</pubDate>
-      <guid>https://haoolii.github.io/post/hello-hugo/</guid>
-      <description>Hello World&#xA;中文測試&#xA;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt; </description>
     </item>
     <item>
       <title></title>

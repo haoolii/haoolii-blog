@@ -1,0 +1,384 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh-CN"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Javascript Function Argument 筆記 - Haoolii Note</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Javascript Function Argument 筆記 紀錄實作工作上部分 function 使用 argument 直接取值時的一些筆記。
+Array-like Object argument是類似array的物件，具有length可取得長度，如要調用array的函式，需要透過call。
+function pump() { console.log(&#39;arguments&#39;, arguments) console.log(&#39;length&#39;, arguments.length) const joinString = Array.prototype.join.call(arguments, &#39;&amp;&#39;); console.log(&#39;joinString&#39;, joinString) } pump(&#39;BTC&#39;, &#39;ETH&#39;) Output:
+arguments Arguments(2) [&#39;BTC&#39;, &#39;ETH&#39;, callee: ƒ, Symbol(Symbol.iterator): ƒ] length 2 joinString BTC&amp;ETH Argument 屬性 Length 如上面範例所示，具有length屬性可取得長度。 callee 可取得函數本身。 對應參數綁定特性 傳入的參數會與arguments的值會共享，但未傳入時將不會。
+function pump(name, age, sex) { console.log(name, arguments[0]); // foo foo name = &#39;poo&#39;; console.log(name, arguments[0]); // poo poo console.log(age, arguments[1]); // 18 18 arguments[1] = 20 console." />
+  <meta name="author" content="Haoolii Note" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://haoolii.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://haoolii.github.io/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://haoolii.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://haoolii.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://haoolii.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.125.4">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Javascript Function Argument 筆記">
+  <meta itemprop="description" content="Javascript Function Argument 筆記 紀錄實作工作上部分 function 使用 argument 直接取值時的一些筆記。
+Array-like Object argument是類似array的物件，具有length可取得長度，如要調用array的函式，需要透過call。
+function pump() { console.log(&#39;arguments&#39;, arguments) console.log(&#39;length&#39;, arguments.length) const joinString = Array.prototype.join.call(arguments, &#39;&amp;&#39;); console.log(&#39;joinString&#39;, joinString) } pump(&#39;BTC&#39;, &#39;ETH&#39;) Output:
+arguments Arguments(2) [&#39;BTC&#39;, &#39;ETH&#39;, callee: ƒ, Symbol(Symbol.iterator): ƒ] length 2 joinString BTC&amp;ETH Argument 屬性 Length 如上面範例所示，具有length屬性可取得長度。 callee 可取得函數本身。 對應參數綁定特性 傳入的參數會與arguments的值會共享，但未傳入時將不會。
+function pump(name, age, sex) { console.log(name, arguments[0]); // foo foo name = &#39;poo&#39;; console.log(name, arguments[0]); // poo poo console.log(age, arguments[1]); // 18 18 arguments[1] = 20 console.">
+  <meta itemprop="datePublished" content="2024-04-29T11:27:23+08:00">
+  <meta itemprop="dateModified" content="2024-04-29T11:27:23+08:00">
+  <meta itemprop="wordCount" content="136">
+  
+  <meta property="og:url" content="https://haoolii.github.io/post/arguments-research/">
+  <meta property="og:site_name" content="Haoolii Note">
+  <meta property="og:title" content="Javascript Function Argument 筆記">
+  <meta property="og:description" content="Javascript Function Argument 筆記 紀錄實作工作上部分 function 使用 argument 直接取值時的一些筆記。
+Array-like Object argument是類似array的物件，具有length可取得長度，如要調用array的函式，需要透過call。
+function pump() { console.log(&#39;arguments&#39;, arguments) console.log(&#39;length&#39;, arguments.length) const joinString = Array.prototype.join.call(arguments, &#39;&amp;&#39;); console.log(&#39;joinString&#39;, joinString) } pump(&#39;BTC&#39;, &#39;ETH&#39;) Output:
+arguments Arguments(2) [&#39;BTC&#39;, &#39;ETH&#39;, callee: ƒ, Symbol(Symbol.iterator): ƒ] length 2 joinString BTC&amp;ETH Argument 屬性 Length 如上面範例所示，具有length屬性可取得長度。 callee 可取得函數本身。 對應參數綁定特性 傳入的參數會與arguments的值會共享，但未傳入時將不會。
+function pump(name, age, sex) { console.log(name, arguments[0]); // foo foo name = &#39;poo&#39;; console.log(name, arguments[0]); // poo poo console.log(age, arguments[1]); // 18 18 arguments[1] = 20 console.">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-04-29T11:27:23+08:00">
+    <meta property="article:modified_time" content="2024-04-29T11:27:23+08:00">
+
+  
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Javascript Function Argument 筆記">
+<meta name="twitter:description" content="Javascript Function Argument 筆記 紀錄實作工作上部分 function 使用 argument 直接取值時的一些筆記。
+Array-like Object argument是類似array的物件，具有length可取得長度，如要調用array的函式，需要透過call。
+function pump() { console.log(&#39;arguments&#39;, arguments) console.log(&#39;length&#39;, arguments.length) const joinString = Array.prototype.join.call(arguments, &#39;&amp;&#39;); console.log(&#39;joinString&#39;, joinString) } pump(&#39;BTC&#39;, &#39;ETH&#39;) Output:
+arguments Arguments(2) [&#39;BTC&#39;, &#39;ETH&#39;, callee: ƒ, Symbol(Symbol.iterator): ƒ] length 2 joinString BTC&amp;ETH Argument 屬性 Length 如上面範例所示，具有length屬性可取得長度。 callee 可取得函數本身。 對應參數綁定特性 傳入的參數會與arguments的值會共享，但未傳入時將不會。
+function pump(name, age, sex) { console.log(name, arguments[0]); // foo foo name = &#39;poo&#39;; console.log(name, arguments[0]); // poo poo console.log(age, arguments[1]); // 18 18 arguments[1] = 20 console.">
+
+  
+  
+  
+  <link rel="canonical" href="https://haoolii.github.io/post/arguments-research/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://haoolii.github.io/"
+      >Haoolii Note</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/contact/"
+        >Contact</a
+      >
+      
+    </nav>
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Javascript Function Argument 筆記</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Apr 29, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="javascript-function-argument-筆記">Javascript Function Argument 筆記</h2>
+<p>紀錄實作工作上部分 function 使用 argument 直接取值時的一些筆記。</p>
+<h3 id="array-like-object">Array-like Object</h3>
+<p>argument是類似<code>array</code>的物件，具有<code>length</code>可取得長度，如要調用<code>array</code>的函式，需要透過<code>call</code>。</p>
+<pre tabindex="0"><code>function pump() {
+    console.log(&#39;arguments&#39;, arguments)
+    console.log(&#39;length&#39;, arguments.length)
+
+    const joinString = Array.prototype.join.call(arguments, &#39;&amp;&#39;);
+    console.log(&#39;joinString&#39;, joinString)
+}
+
+pump(&#39;BTC&#39;, &#39;ETH&#39;)
+</code></pre><p>Output:</p>
+<pre tabindex="0"><code>arguments Arguments(2) [&#39;BTC&#39;, &#39;ETH&#39;, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+length 2
+joinString BTC&amp;ETH
+</code></pre><h3 id="argument-屬性">Argument 屬性</h3>
+<ol>
+<li>Length
+如上面範例所示，具有<code>length</code>屬性可取得長度。</li>
+<li>callee
+可取得函數本身。</li>
+</ol>
+<h3 id="對應參數綁定特性">對應參數綁定特性</h3>
+<p>傳入的參數會與<code>arguments</code>的值會共享，但未傳入時將不會。</p>
+<pre tabindex="0"><code>function pump(name, age, sex) {
+    console.log(name, arguments[0]); // foo foo
+    name = &#39;poo&#39;;
+    console.log(name, arguments[0]); // poo poo
+
+    console.log(age, arguments[1]); // 18 18
+    arguments[1] = 20
+    console.log(age, arguments[1]); // 20 20
+
+    console.log(sex, arguments[2]); // undefined undefined
+    sex = &#39;female&#39;;
+    console.log(sex, arguments[2]); // female undefined   
+}
+pump(&#39;foo&#39;, 18)
+</code></pre><h3 id="常見操作">常見操作</h3>
+<p>透過<code>ES6</code>可直接展開<code>arguments</code>為陣列。</p>
+<pre tabindex="0"><code>function pump(...arguments) {
+    console.log(&#39;arguments&#39;, arguments)  // [&#39;foo&#39;, 18]
+    console.log(&#39;lenth&#39;, arguments.length)  // 2
+    console.log(&#39;join&#39;, arguments.join(&#39;&amp;&#39;))  // foo&amp;18
+}
+pump(&#39;foo&#39;, 18)
+</code></pre><p>透過<code>apply</code>傳遞參數至另一函式</p>
+<pre tabindex="0"><code>function pump() {
+    bump.apply(this, arguments)
+}
+function bump(name, age) {
+    console.log(&#39;name&#39;, name)
+    console.log(&#39;age&#39;, age)
+}
+pump(&#39;foo&#39;, 18)
+</code></pre></section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://haoolii.github.io/post/baota-install-intro/"
+      ><span>寶塔安裝筆記</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://haoolii.github.io/">Haoolii Note</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
